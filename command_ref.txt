@@ -1,0 +1,4 @@
+C:\Work\projects\toraberu>venv\Scripts\activate
+
+(venv) C:\Work\projects\toraberu>deactivate
+C:\Work\projects\toraberu>
