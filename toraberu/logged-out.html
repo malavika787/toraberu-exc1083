@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+ <meta charset="utf-8">
+ <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+ <meta name="description" content="">
+ <meta name="author" content="">
+
+ <title>Small Business - Start Bootstrap Template</title>
+ {% load static %}
+ <!-- Bootstrap core CSS -->
+ <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+
+ <!-- Custom styles for this template -->
+ <link href="{% static 'css/small-business.css' %}" rel="stylesheet">
+
+</head>
+
+<body>
+
+ <!-- Navigation -->
+ <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+   <div class="container">
+     <a class="navbar-brand" href="#">Toraberu</a>
+     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+       <span class="navbar-toggler-icon"></span>
+     </button>
+     <div class="collapse navbar-collapse" id="navbarResponsive">
+       <ul class="navbar-nav ml-auto">
+         <li class="nav-item active">
+           <a class="nav-link" href="{% url 'index' %}">Home
+             <span class="sr-only">(current)</span>
+           </a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'bookings' %}">Bookings</a>
+         </li>
+         <li class="nav-item">
+           <a class="nav-link" href="{% url 'login'%}">Login</a>
+         </li>
+       </ul>
+     </div>
+   </div>
+ </nav>
+
+ <!-- Page Content -->
+ <div class="container">
+
+   <!-- Heading Row -->
+   <div class="row align-items-center my-5">
+     <div class="col-lg-7">
+       <img class="img-fluid rounded mb-4 mb-lg-0" src="{% static 'img/hotel.jpg' %}" alt="">
+     </div>
+     <!-- /.col-lg-8 -->
+     <div class="col-lg-5">
+       <h1 class="font-weight-light">Toraberu</h1>
+       <p> Discover quiet luxury, redefine your expectations. Explore your destination with us. We share a passion for hospitality. So relax, and stay with us in comfort. Come in as guests, leave as family. A hotel experience, unlike any other.</p>
+       <a class="btn btn-primary" href="#">book now</a>
+     </div>
+         <ul>
+             <a href="/quickbook?country=India">India</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=China">China</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Indonesia">Indonesia</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Pakistan">Pakistan</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Bangladesh">Bangladesh</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Japan">Japan</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Philippines">Philippines</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Vietnam">Vietnam</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Turkey">Turkey</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Iran">Iran</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Thailand">Thailand</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=South Korea">South Korea</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Malaysia">Malaysia</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Nepal">Nepal</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Sri Lanka">Sri Lanka</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Kazakhstan">Kazakhstan</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Cambodia">Cambodia</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Jordan">Jordan</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Azerbaijan">Azerbaijan</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=United Arab Emirates">United Arab Emirates</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Israel">Israel</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Laos">Laos</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Kyrgyzstan">Kyrgyzstan</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Singapore">Singapore</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Oman">Oman</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Kuwait">Kuwait</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Georgia">Georgia</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Armenia">Armenia</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Qatar">Qatar</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Cyprus">Cyprus</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Bhutan">Bhutan</a>&nbsp;&nbsp;
+             <a href="/quickbook?country=Maldives">Maldives</a>&nbsp;&nbsp;
+           </ul>
+     <!-- /.col-md-4 -->
+   </div>
+   <!-- /.row -->
+   <!-- Call to Action Well -->
+   <div class="card text-white bg-secondary my-5 py-4 text-center">
+     <div class="card-body">
+       <p class="text-white m-0">The health and safety of our guests is our top priority. For more information regarding our COVID - 19 regulations, please contact the hotel directly.</p>
+     </div>
+   </div>
+
+   <!-- Content Row -->
+   {% for hotel in hotels %}
+   <div class="row">
+     <div class="col-md-4 mb-5">
+       <div class="card h-100">
+         <div class="card-body">
+           <h2 class="card-title">{{ hotel.name }}</h2>
+           <p class="card-text">{{hotel.city}}</p>
+           <p>{{ hotel.address }}</p>
+           <p>{{ hotel.description}}</p>
+           <p>{{ hotel.pricerange}}</p>
+         </div>
+         <div class="card-footer">
+           <a href="{% url 'hotel-detail' hotel.pk %}" class="btn btn-primary btn-sm">Book</a>
+         </div>
+       </div>
+     </div>
+   </div>
+   {% endfor %}
+ </div>
+ <!-- /.container -->
+
+ <!-- Footer -->
+ <footer class="py-5 bg-dark">
+   <div class="container">
+     <p class="m-0 text-center text-white">Copyright &copy; Your Website 2020</p>
+   </div>
+   <!-- /.container -->
+ </footer>
+
+ <!-- Bootstrap core JavaScript -->
+ <script src="vendor/jquery/jquery.min.js"></script>
+ <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
